@@ -1,4 +1,4 @@
-alert('Play a game with me : right click >inspect >console. Press OK to start')
+alert('Ready to play ? First press Ctrl+Shift+I on your keyboard to access the console. PRESS OK TO START')
 
 const ROCK = 'rock';
 const PAPER = 'paper';
