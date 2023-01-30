@@ -22,7 +22,7 @@ switch(Math.floor(Math.random() * 4)){
         return SCISSOR;
         break;
     default :
-    return PAPER;
+    return SCISSOR;
     break;
 }
 }
@@ -35,53 +35,47 @@ function playRound(playerSelection, computerSelection){
     console.log(playerSelection);
 
     if(playerSelection == computerSelection){
-        playerResults.description = 'Its a tie!';
+        playerResults.description = "It's a tie!";
         playerResults.state = 0;
         return playerResults.state;
     }
     else if(playerSelection === ROCK && computerSelection === PAPER){
         playerResults.description = 'You loose! paper beats rock';
         playerResults.state = 2;
-        return playerResults.state;
+        // return playerResults.state;
     }
     else if(playerSelection === PAPER && computerSelection === SCISSOR){
         playerResults.description = 'You loose! scissor beats paper';
         playerResults.state = 2;
-        return playerResults.state;
+        // return playerResults.state;
     }
     else if(playerSelection === SCISSOR && computerSelection === ROCK){
         playerResults.description = 'You loose! rock beats scissor';
         playerResults.state = 2;
-        return playerResults.state;
+        // return playerResults.state;
     }
     else if(playerSelection === ROCK && computerSelection === SCISSOR){
         playerResults.description = 'You Win!';
         playerResults.state = 1;
-        return playerResults.state;
+        // return playerResults.state;
     }
     else if(playerSelection === SCISSOR && computerSelection === PAPER){
         playerResults.description = 'You Win!';
         playerResults.state= 1;
-        return playerResults.state;
+        // return playerResults.state;
     }
     else if(playerSelection === PAPER && computerSelection === ROCK ){
         playerResults.description = 'You Win!';
         playerResults.state = 1;
-        return playerResults.state;
+        // return playerResults.state;
     }
 } 
-
-const playerSelection ='Rock';
-const computerSelection = computerPlay();
-console.log(computerSelection)
-playRound(playerSelection, computerSelection)
-console.log(playerResults.description);
 
 function checkPlayerInput(playerSelection){
 
     playerSelection =playerSelection.toLowerCase();
 
-    if(playerSelection === SCISSOR || playerSelection === ROCK || playerSelection === SCISSOR ){
+    if(playerSelection === SCISSOR || playerSelection === ROCK || playerSelection === PAPER ){
         return true
     } 
     else{
@@ -99,7 +93,7 @@ function game(){
         let playerSelection = prompt('Enter your selection Rock, Paper or Scissor: ','Rock');
         if(checkPlayerInput(playerSelection) == false){
             playerSelection = prompt(' Opps invalid input! lets try that again, Enter your selection Rock, Paper or Scissor: ','Rock');
-            // i = i-1;
+            i = i-1;
         } 
         
         if(checkPlayerInput(playerSelection) == true){
@@ -121,16 +115,18 @@ function game(){
                     break;
             }
         }
+        console.log(`YOU STILL HAVE ${5 - i - 1} ROUNDS TO GO`)
 
     }
-
+    console.log(`Final scores: You ${playerCounter} Computer: ${computerCounter}`)
     if(playerCounter>computerCounter){
         console.log('Congratulations YOU WON:)');
     }else if (playerCounter == computerCounter){
-        console.log('We are all winners ! ITS A TIE')
+        console.log("We are all WINNERS! IT'S A TIE")
     } else if(computerCounter>playerCounter){
         console.log('Sorry YOU LOOSE!')
     }
+    console.log('Refresh the page to Restart the game.')
 }
 
 game();
