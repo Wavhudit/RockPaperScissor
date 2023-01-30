@@ -74,13 +74,18 @@ function checkPlayerInput(playerSelection){
     }  
 }
 
+function playerSelect(){
+    let playerSelection = prompt('Enter your selection Rock, Paper or Scissor: ','Rock');
+    playerSelection = playerSelection.replace(/\s+/g, '');
+    return playerSelection;
+}
+
 function game(){
     let playerCounter = 0;
     let computerCounter = 0;
     console.log('LET THE GAME BEGIN')
     for(let i = 0; i < 5; i++){
-        let playerSelection = prompt('Enter your selection Rock, Paper or Scissor: ','Rock');
-        playerSelection = playerSelection.replace(/\s+/g, '');
+        playerSelection =playerSelect();
         if(checkPlayerInput(playerSelection) == false){
             playerSelection = prompt(' Opps invalid input! lets try that again, Enter your selection Rock, Paper or Scissor: ','Rock');
             i = i-1;
