@@ -30,9 +30,9 @@ switch(Math.floor(Math.random() * 4)){
 function playRound(playerSelection, computerSelection){
 
     computerSelection = computerSelection.toLowerCase();
-    console.log(computerSelection);
+    console.log(`Computer selection: ${computerSelection}`);
     playerSelection = playerSelection.toLowerCase();
-    console.log(playerSelection);
+    console.log(`Player selection: ${playerSelection}`);
 
     if(playerSelection == computerSelection){
         playerResults.description = "It's a tie!";
@@ -79,14 +79,12 @@ function game(){
     let computerCounter = 0;
     console.log('LET THE GAME BEGIN')
     for(let i = 0; i < 5; i++){
-
         let playerSelection = prompt('Enter your selection Rock, Paper or Scissor: ','Rock');
         playerSelection = playerSelection.replace(/\s+/g, '');
         if(checkPlayerInput(playerSelection) == false){
             playerSelection = prompt(' Opps invalid input! lets try that again, Enter your selection Rock, Paper or Scissor: ','Rock');
             i = i-1;
-        } 
-        
+        }     
         if(checkPlayerInput(playerSelection) == true){
             const computerSelection = computerPlay();
             playRound(playerSelection, computerSelection);
@@ -107,7 +105,6 @@ function game(){
             }
         }
         console.log(`YOU STILL HAVE ${5 - i - 1} ROUNDS TO GO`)
-
     }
     console.log(`Final scores: You ${playerCounter} Computer: ${computerCounter}`)
     if(playerCounter>computerCounter){
