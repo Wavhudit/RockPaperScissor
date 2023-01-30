@@ -37,51 +37,41 @@ function playRound(playerSelection, computerSelection){
     if(playerSelection == computerSelection){
         playerResults.description = "It's a tie!";
         playerResults.state = 0;
-        return playerResults.state;
     }
     else if(playerSelection === ROCK && computerSelection === PAPER){
         playerResults.description = 'You loose! paper beats rock';
         playerResults.state = 2;
-        // return playerResults.state;
     }
     else if(playerSelection === PAPER && computerSelection === SCISSOR){
         playerResults.description = 'You loose! scissor beats paper';
         playerResults.state = 2;
-        // return playerResults.state;
     }
     else if(playerSelection === SCISSOR && computerSelection === ROCK){
         playerResults.description = 'You loose! rock beats scissor';
         playerResults.state = 2;
-        // return playerResults.state;
     }
     else if(playerSelection === ROCK && computerSelection === SCISSOR){
         playerResults.description = 'You Win!';
         playerResults.state = 1;
-        // return playerResults.state;
     }
     else if(playerSelection === SCISSOR && computerSelection === PAPER){
         playerResults.description = 'You Win!';
         playerResults.state= 1;
-        // return playerResults.state;
     }
     else if(playerSelection === PAPER && computerSelection === ROCK ){
         playerResults.description = 'You Win!';
         playerResults.state = 1;
-        // return playerResults.state;
     }
 } 
 
 function checkPlayerInput(playerSelection){
-
     playerSelection =playerSelection.toLowerCase();
-
     if(playerSelection === SCISSOR || playerSelection === ROCK || playerSelection === PAPER ){
         return true
     } 
     else{
         return false
-    }
-     
+    }  
 }
 
 function game(){
@@ -91,6 +81,7 @@ function game(){
     for(let i = 0; i < 5; i++){
 
         let playerSelection = prompt('Enter your selection Rock, Paper or Scissor: ','Rock');
+        playerSelection = playerSelection.replace(/\s+/g, '');
         if(checkPlayerInput(playerSelection) == false){
             playerSelection = prompt(' Opps invalid input! lets try that again, Enter your selection Rock, Paper or Scissor: ','Rock');
             i = i-1;
